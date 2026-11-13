@@ -1,0 +1,55 @@
+import { M2_QUESTIONS } from './m2/questions';
+import { M2_CARDS } from './m2/cards';
+import { M2_LESSONS } from './m2/lessons';
+import { M2_TASKS, M2_FEYNMAN } from './m2/tasks';
+import { SCENARIOS as M2_SCENARIOS } from './m2/scenarios';
+import { M1_LESSONS } from './m1/lessons';
+import { M1_LESSONS_2 } from './m1/lessons2';
+import { M1_QUESTIONS } from './m1/questions';
+import { M1_CARDS, M1_FEYNMAN, M1_SCENARIO, M1_SITETASKS, M1_TASKS } from './m1/tasks';
+import { MODULES } from './modules';
+import { M3_LESSONS } from './m3/lessons';
+import { M4_LESSONS } from './m4/lessons';
+import { M4_QUESTIONS } from './m4/questions';
+import { M4_CARDS, M4_FEYNMAN, M4_SCENARIO, M4_SITETASKS, M4_TASKS } from './m4/tasks';
+import { M3_QUESTIONS } from './m3/questions';
+import { M3_CARDS, M3_FEYNMAN, M3_SCENARIO, M3_SITETASKS, M3_TASKS } from './m3/tasks';
+import { M2_DECISIONS } from './m2/decisions';
+import { M8_LESSONS } from './m8/lessons';
+import { M8_QUESTIONS } from './m8/questions';
+import { M8_CARDS, M8_FEYNMAN, M8_SCENARIO, M8_SITETASKS, M8_TASKS } from './m8/tasks';
+import { M9_LESSONS } from './m9/lessons';
+import { M9_QUESTIONS } from './m9/questions';
+import { M9_CARDS, M9_FEYNMAN, M9_SCENARIO, M9_SITETASKS, M9_TASKS } from './m9/tasks';
+import { M10_LESSONS } from './m10/lessons';
+import { M10_QUESTIONS } from './m10/questions';
+import { M10_CARDS, M10_FEYNMAN, M10_SCENARIO, M10_SITETASKS, M10_TASKS } from './m10/tasks';
+import { M2_SITETASKS } from './m2/sitetasks';
+import { M2_L7, M2_L7_CARDS, M2_L7_QUESTIONS, M2_P7, M2_T7 } from './m2/lesson-sia';
+import type { Card, FeynmanTask, Lesson, PracticeTask, Question, Scenario, SiteTask } from './types';
+
+export { MODULES, TOPICS, LEVEL_LABEL, LEVEL_SHORT } from './modules';
+export { SOURCES, SOURCE_KIND_LABEL, REVIEW_LABEL } from './sources';
+export { GLOSSARY } from './glossary';
+export { LIBRARY, LIB_CATEGORY_LABEL } from './library';
+export { CRITERION_LABEL } from './m2/scenarios';
+
+// Neue Module: hier ihre Datensätze anhängen.
+export const QUESTIONS: Question[] = [...M1_QUESTIONS, ...M2_QUESTIONS, ...M2_DECISIONS, ...M2_L7_QUESTIONS, ...M3_QUESTIONS, ...M4_QUESTIONS, ...M8_QUESTIONS, ...M9_QUESTIONS, ...M10_QUESTIONS];
+export const CARDS: Card[] = [...M1_CARDS, ...M2_CARDS, ...M2_L7_CARDS, ...M3_CARDS, ...M4_CARDS, ...M8_CARDS, ...M9_CARDS, ...M10_CARDS];
+// Reihenfolge: nach Lernpfad (Modul) und innerhalb des Moduls nach Lektion
+const pathOrder = (moduleId: string) => MODULES.find((m) => m.id === moduleId)?.pathOrder ?? 99;
+export const LESSONS: Lesson[] = [...M1_LESSONS, ...M1_LESSONS_2, ...M2_LESSONS, M2_L7, ...M3_LESSONS, ...M4_LESSONS, ...M8_LESSONS, ...M9_LESSONS, ...M10_LESSONS].sort((a, b) => pathOrder(a.moduleId) - pathOrder(b.moduleId) || a.order - b.order);
+export const TASKS: PracticeTask[] = [...M1_TASKS, ...M2_TASKS, M2_P7, ...M3_TASKS, ...M4_TASKS, ...M8_TASKS, ...M9_TASKS, ...M10_TASKS];
+export const FEYNMAN: FeynmanTask[] = [...M1_FEYNMAN, ...M2_FEYNMAN, ...M3_FEYNMAN, ...M4_FEYNMAN, ...M8_FEYNMAN, ...M9_FEYNMAN, ...M10_FEYNMAN];
+export const SITETASKS: SiteTask[] = [...M1_SITETASKS, ...M2_SITETASKS, M2_T7, ...M3_SITETASKS, ...M4_SITETASKS, ...M8_SITETASKS, ...M9_SITETASKS, ...M10_SITETASKS];
+export const SCENARIOS: Scenario[] = [...M2_SCENARIOS.filter((x) => x.status === 'verfuegbar'), M1_SCENARIO, M3_SCENARIO, M4_SCENARIO, M8_SCENARIO, M9_SCENARIO, M10_SCENARIO, ...M2_SCENARIOS.filter((x) => x.status !== 'verfuegbar')];
+
+const byId = <T extends { id: string }>(arr: T[]) => new Map(arr.map((x) => [x.id, x] as const));
+export const Q = byId(QUESTIONS);
+export const C = byId(CARDS);
+export const L = byId(LESSONS);
+export const T = byId(TASKS);
+export const F = byId(FEYNMAN);
+export const S = byId<Scenario>(SCENARIOS);
+export const ST = byId(SITETASKS);
