@@ -14,7 +14,7 @@ Auf dem Handy lässt sich die App zum Startbildschirm hinzufügen (iPhone: Teile
 
 ## Stand
 
-Verfügbar: Module 1–4 und 8–10 (Umweltrecht, Gewässerschutz, Bauabfälle, Bodenschutz, Planung und AVOR, Umweltbaubegleitung, ISO 14001). In Entwicklung: Module 5–7, 11, 12.
+Verfügbar: Module 1–4 und 7–10 (Umweltrecht, Gewässerschutz, Bauabfälle, Bodenschutz, Gefahrstoffe, Planung und AVOR, Umweltbaubegleitung, ISO 14001). In Entwicklung: Module 5, 6, 11, 12.
 
 ## Entwicklung
 
