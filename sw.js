@@ -1,4 +1,4 @@
-// UmweltCampus Bau CH 0.13.0
+// UmweltCampus Bau CH 0.14.0
 const CACHE = 'umweltcampus-v1';
 const FILES = ['./', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting())); });
