@@ -14,7 +14,7 @@ Auf dem Handy lässt sich die App zum Startbildschirm hinzufügen (iPhone: Teile
 
 ## Stand
 
-Verfügbar: Module 1–11 (Umweltrecht, Gewässerschutz, Bauabfälle, Bodenschutz, Luftreinhaltung, Baulärm, Gefahrstoffe, Planung und AVOR, Umweltbaubegleitung, ISO 14001, Klima und Ressourcen). In Entwicklung: Modul 12.
+Verfügbar: alle 12 Module (Umweltrecht, Gewässerschutz, Bauabfälle, Bodenschutz, Luftreinhaltung, Baulärm, Gefahrstoffe, Planung und AVOR, Umweltbaubegleitung, ISO 14001, Klima und Ressourcen, Führung). Prüfstatus aller Inhalte: Entwurf.
 
 ## Entwicklung
 
